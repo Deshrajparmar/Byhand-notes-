@@ -1,5 +1,6 @@
 
 import Navbar from "./nav";
+import Footer from "./footer";
 
 const HomePage = () => {
   return (
@@ -49,7 +50,12 @@ const HomePage = () => {
           </p>
         </div>
       </main>
+      <Footer/>
+
+      
+
     </div>
+    
   );
 };
 

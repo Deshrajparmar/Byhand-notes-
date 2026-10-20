@@ -6,12 +6,7 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  const links = [
-    { name: "Home", href: "/" },
-   
-    { name: "About", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
-  ];
+  
 
   return (
     <nav
@@ -30,17 +25,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-9 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-[15px] font-medium transition-opacity hover:opacity-60"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
+        
 
         <div className="hidden items-center gap-3 sm:flex">
           <a
@@ -99,13 +84,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="flex items-center gap-2 text-sm"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-            Switch theme
-          </button>
+          
         </div>
       )}
     </nav>
