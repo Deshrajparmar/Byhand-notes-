@@ -1,29 +1,18 @@
 
 import Navbar from "./nav";
 import Footer from "./footer";
+import { useEffect, useState } from "react";
 
 function Blog() {
-    //dummy data remove it later
-    const posts = [
-  {
-    id: 1,
-    title: "The Art of Being Alone",
-    category: "Personal",
-    excerpt: "Learning to enjoy your own company.",
-  },
-  {
-    id: 2,
-    title: "Small Things Matter",
-    category: "Life",
-    excerpt: "Finding happiness in ordinary moments.",
-  },
-  {
-    id: 3,
-    title: "My Journey into Coding",
-    category: "Technology",
-    excerpt: "What building my first project taught me.",
-  },
-];
+    const [posts ,setPosts ] = useState([]);
+
+    useEffect(()=>{
+      const savedPostes = JSON.parse(
+        localStorage.getItem("byhand-posts") || "[]"
+      );
+
+      setPosts(savedPostes);
+    },[]);
 
   return (
     <div className="min-h-screen bg-[#F8F5EF] text-[#292820]">
@@ -42,6 +31,23 @@ function Blog() {
           Discover honest thoughts, personal experiences, and stories
           written by people like you.
         </p>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+         {posts.map((post)=>(
+          <article key = {post.id}
+          className="rounded-2xl border border-[#E2DBCF] bg-[#FFFEFB] p-6">
+            <p className="mb-3 text-sm text-[#987C59]">{post.category}</p>
+
+      <h2 className="mb-3 font-serif text-2xl">
+        {post.title}
+      </h2>
+
+      <p className="leading-7 text-[#716D63]">
+        {post.excerpt}
+      </p>
+          </article>
+         ))} 
+
+        </div>
       </main>
 
       <Footer />
