@@ -2,6 +2,7 @@
 import Navbar from "./nav";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Blog() {
     const [posts ,setPosts ] = useState([]);
@@ -88,10 +89,18 @@ const categories = [
       <p className="leading-7 text-[#716D63]">
         {post.excerpt}
       </p>
+      <Link
+  to={`/blog/${post.id}`}
+  className="mt-4 inline-block text-[#987C59] hover:underline"
+>
+  Read story →
+</Link>
           </article>
          ))} 
 
         </div>
+        
+
       </main>
 
       <Footer />
